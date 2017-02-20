@@ -16,28 +16,37 @@ export default class extends Phaser.Sprite {
 
   update () {
     this.body.setZeroVelocity()
-
+    let rotation = null
     if (this.cursors.left.isDown) {
       this.body.moveLeft(200)
-      this.body.rotation = 3
-      //  this.body.rotateLeft(100)
+      rotation = 3
     } else if (this.cursors.right.isDown) {
-      // this.body.rotateRight(100)
       this.body.moveRight(200)
-      this.body.rotation = 0
+      rotation = 0
     } else {
-      // this.body.setZeroRotation()
     }
 
     if (this.cursors.up.isDown) {
       this.body.moveUp(200)
-      this.body.rotation = -1.5
-      //  this.body.thrust(50)
+      if (rotation === null) {
+        rotation = -1.5
+      } else if (rotation === 3) {
+        rotation = -2
+      } else if (rotation === 0) {
+        rotation = -0.5
+      }
     } else if (this.cursors.down.isDown) {
       this.body.moveDown(200)
-      // this.body.reverse(50)
-      this.body.rotation = 1.5
+      if (rotation === null) {
+        rotation = 1.5
+      } else if (rotation === 3) {
+        rotation = 2
+      } else if (rotation === 0) {
+        rotation = 0.5
+      }
     }
+
+    this.body.rotation = rotation || this.body.rotation
 
     if (!this.game.camera.atLimit.x) {
       this.game.ground.tilePosition.x -= (this.body.velocity.x * this.game.time.physicsElapsed)
