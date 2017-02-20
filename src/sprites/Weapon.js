@@ -14,9 +14,10 @@ export default class extends Phaser.Sprite {
   }
 
   update () {
-    this.body.setZeroVelocity()
-    this.body.velocity.x = this.owner.body.velocity.x
-    this.body.velocity.y = this.owner.body.velocity.y
+    // this.body.setZeroVelocity()
+    this.body.x = this.owner.body.x
+    this.body.y = this.owner.body.y
+    this.body.rotation = this.owner.body.rotation
   }
 
 }
