@@ -46,7 +46,7 @@ export default class extends Phaser.Sprite {
       }
     }
 
-    this.body.rotation = rotation || this.body.rotation
+    this.body.rotation = rotation === null ? this.body.rotation : rotation
 
     if (!this.game.camera.atLimit.x) {
       this.game.ground.tilePosition.x -= (this.body.velocity.x * this.game.time.physicsElapsed)

@@ -9,8 +9,6 @@ export default class extends Phaser.Sprite {
     this.smoothed = true
     this.owner = owner
     game.physics.p2.enable(this, false)
-    console.log(this.body)
-  //  this.body.setCircle(28)
   }
 
   update () {
