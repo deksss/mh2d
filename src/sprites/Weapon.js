@@ -29,12 +29,12 @@ export default class extends Phaser.Sprite {
     }
 
     if (this.game.time.now < this.atakFinishedTime) {
-      if (this.anchor.x > -1) {
-        this.anchor.setTo(this.anchor.x - 0.05, 0.5)
+      if (this.anchor.x > -0.5) {
+        this.anchor.setTo(this.anchor.x - 0.02, 0.5)
       }
     } else {
       this.inAtack = false
-      this.anchor.setTo(-0.1, 0.5)
+      this.anchor.setTo(0, 0.5)
     }
   }
 }
