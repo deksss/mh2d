@@ -56,5 +56,4 @@ export default class extends Phaser.Sprite {
       this.game.ground.tilePosition.y -= (this.body.velocity.y * this.game.time.physicsElapsed)
     }
   }
-
 }
