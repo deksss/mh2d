@@ -2,6 +2,7 @@
 import Phaser from 'phaser'
 import Human from '../sprites/Human'
 import Weapon from '../sprites/Weapon'
+import Monster from '../sprites/Monster'
 
 export default class extends Phaser.State {
   init () {}
@@ -37,8 +38,20 @@ export default class extends Phaser.State {
       owner: this.human
     })
 
+    this.monster = new Monster({
+      game: this,
+      x: this.world.centerX,
+      y: this.world.centerY,
+      assets: {body: 'monster-body',
+        head: 'monster-head',
+        leg: 'monster-leg',
+        arm: 'monster-arm'
+      }
+    })
+
     this.game.add.existing(this.human)
     this.game.add.existing(this.weapon)
+    this.game.add.existing(this.monster)
 
     this.game.world.setBounds(0, 0, 1600, 1200)
   }
