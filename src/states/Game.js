@@ -3,6 +3,7 @@ import Phaser from 'phaser'
 import Human from '../sprites/Human'
 import Weapon from '../sprites/Weapon'
 import Monster from '../sprites/Monster'
+import Combat from '../logic/Combat'
 
 export default class extends Phaser.State {
   init () {}
@@ -56,9 +57,14 @@ export default class extends Phaser.State {
     this.game.world.setBounds(0, 0, 1600, 1200)
   }
 
+  update () {
+    Combat(this)
+  }
+
   render () {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.human, 32, 32)
+      this.game.debug.text('Monster HP: ' + this.monster.HP, 32, 32)
+      this.game.debug.text('Human HP: ' + this.human.HP, 62, 62)
     }
   }
 }

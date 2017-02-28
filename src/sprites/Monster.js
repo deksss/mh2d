@@ -6,6 +6,8 @@ export default class extends Phaser.Group {
     super(game)
     game.physics.p2.enable(this, false)
 
+    this.HP = 100
+
     this.x = 300
     this.y = 200
 

@@ -14,6 +14,7 @@ export default class extends Phaser.Sprite {
     this.atakTime = 500
     this.atakFinishedTime = null
     this.inAtack = false
+    this.canHit = false
   }
 
   update () {
@@ -25,6 +26,7 @@ export default class extends Phaser.Sprite {
     if (this.atackKey.isDown && !this.inAtack) {
       this.atakFinishedTime = this.game.time.now + this.atakTime
       this.inAtack = true
+      this.canHit = true
       console.log('ATACK!')
     }
 
@@ -34,6 +36,7 @@ export default class extends Phaser.Sprite {
       }
     } else {
       this.inAtack = false
+      this.canHit = false
       this.anchor.setTo(0, 0.5)
     }
   }

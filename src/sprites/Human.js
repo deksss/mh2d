@@ -4,6 +4,8 @@ export default class extends Phaser.Sprite {
 
   constructor ({ game, x, y, asset }) {
     super(game, x, y, asset)
+
+    this.HP = 50
     this.anchor.setTo(0.5)
     this.scale.set(1.1)
     this.smoothed = false
